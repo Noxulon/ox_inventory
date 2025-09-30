@@ -7,6 +7,12 @@ local Utils = require 'modules.utils.client'
 local Weapon = require 'modules.weapon.client'
 local currentWeapon
 
+
+RegisterNUICallback('getItemDefs', function(_, cb)
+    local defs = exports.ox_inventory:Items()
+    cb(defs or {})
+end)
+
 exports('getCurrentWeapon', function()
 	return currentWeapon
 end)
